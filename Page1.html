@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fira+Sans+Condensed:wght@300&family=IBM+Plex+Mono:wght@200&family=Lemon&family=Noto+Sans:wght@600&display=swap" rel="stylesheet"></head>
+
+<body>
+    <style>
+        .Thirdofpage{
+            border-radius: 20px;
+            height: 43vh;
+            width: 40vw;
+            background-color: rgba(27, 27, 28, 0.6  );
+            z-index: 1;
+            margin-bottom: 20px;
+            border: 3px solid #181717;
+        }
+        
+        #Bigdiv{
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+        }
+        body{
+            background-color: #181717;}
+        .blurrystart{
+            
+            
+            filter: blur(0px); 
+        }
+        .imgdiv{
+            display: flex;
+            align-items: end;
+            z-index: 0;
+            height: 80vh;
+            width: 80vw;
+            margin-bottom: -20%;
+            
+        }
+        .image {
+            height:100%;
+            width: 100%;
+            mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%);
+            border: 3px solid rgb(91, 88, 88);
+            border-radius: 160px;
+
+            
+        }
+        #Description{
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            font-family: 'Lemon', serif;
+            
+        }
+        .horizontal{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            /* border:5px solid red; */
+            width: 100%;
+            color: rgb(235, 107, 107);
+            font-size: 15px;
+        }
+        .Festival{
+            height: 100%;
+            width: 10vw;
+            border-radius: 10px;
+            
+        }
+        .festholder{
+            height: 40%;
+            margin-top: 3%;
+            margin-left: 10%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            color: rgb(220, 216, 216);
+            font-family: 'Noto Sans', sans-serif;
+            padding: 5px;
+        }
+        .Cname{
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            margin-top: -10px;
+        }
+        .addinf{
+            margin-top: -5px;
+            color: #bab9b9;
+            font-size: 13px;
+        }
+        .line{
+            margin-top: 10px;
+            width : 80%;
+            border: 2px solid #dad9d9;
+        }
+        .Ticket{
+            width: 44%;
+            height: 90%;
+            background-color: rgba(255,255,255,0.8);
+            margin-top: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Sans', sans-serif;
+        }
+        .extraticketinfo{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: -15px;
+            font-family: 'Fira Sans Condensed', sans-serif;
+            
+        }
+        .PurchaseT {
+	background-color:#531ad8;
+	border-radius:16px;
+	border:3px solid rgb(0, 0, 0);
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:18px;
+	font-weight:bold;
+	padding: 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3b347b;
+}
+.PurchaseT:hover {
+	background-color:#5900ff;
+}
+.Mapdiv {
+            height: 60%;
+            width: 80%;
+            border-radius: 10px;
+            padding: 20px;
+            margin-left: 3%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+           
+        }
+.Mapandtext p {
+            color: white;  
+            font-family: 'Noto Sans', sans-serif;  
+        }
+.Mapandtext{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+        
+        </style>
+    <div id="Bigdiv">
+        <div class="imgdiv">
+        <div class="blurrystart">
+            <img src="https://www.tomorrowland.com/src/Frontend/Themes/tomorrowland/Core/Layout/images/timeline/2023-1.jpg" class="image">
+        </div>
+    </div>
+    <div  class="Thirdofpage" id="Description">
+        <!-- <h1 style="font-family: 'Lemon', serif; color: #d1bc34;">TommorowLand</h1>
+        <p style="font-weight: bold; color: white;"> Dates Available : </p>
+        <div class="horizontal">
+            <p>28th January</p>
+        <p> 2nd february</p> -->
+        <!-- </div >
+        <div class="horizontal">
+        <p>Marseille, France</p>
+        <p>Frankfurt, Germany</p>
+    </div> -->
+    <div class="festholder">
+    <img src="Festival1.PNG" alt="" class="Festival">
+    <div style="margin-left: 25px;">
+        <p class="Cname">The Great Library of Tomorrow</p>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+        <ion-icon name="calendar-outline" style="margin-bottom: 20px;"></ion-icon>
+        <p class="addinf">December 2023 - March 2024</p>
+         </div>
+         <div style="display: flex; flex-direction: row; align-items: center;">
+            <ion-icon name="location-outline" style="margin-bottom: 20px;"></ion-icon>
+            <p class="addinf">Barcelona - spain</p>
+             </div>
+    </div>
+    </div>
+    <div class="line"></div>
+    <div class="festholder">
+        <img src="Festival3.PNG" alt="" class="Festival" style="margin-bottom: 20px;">
+        <div style="margin-left: 10px;">
+            <p class="Cname">Core Tulum</p>
+            <div style="display: flex; flex-direction: row; align-items: center;">
+            <ion-icon name="calendar-outline" style="margin-bottom: 20px;"></ion-icon>
+            <p class="addinf">January 20 & January 28 2024</p>
+             </div>
+             <div style="display: flex; flex-direction: row; align-items: center;">
+                <ion-icon name="location-outline" style="margin-bottom: 20px;"></ion-icon>
+                <p class="addinf">Tulum - Mexico</p>
+                 </div>
+        </div>
+        </div>
+    </div>
+    <h1 style="color: white; font-family: 'Noto Sans', sans-serif;" >Buy Tickets Here !</h1>
+    <div class="Thirdofpage" style="background:linear-gradient(20deg,#5209fc,#83247d);display: flex;flex-direction: row; justify-content: space-evenly;height: 60vh;">
+        
+    <div class="Ticket">
+        <ion-icon name="ticket-outline" style="font-size: 70px; margin-top: -10px;"></ion-icon>
+        <h3 style="font-size: 20px; margin-top: 10px;">Core Tulum</h3>
+        <h1 style="font-size: 45px; margin-top: -18px;">60$</h1>
+        <div class="extraticketinfo">
+            <ion-icon name="star-half-outline"></ion-icon>
+            <p style="margin-left: 10px;">This event is Happening in Mexico !</p>
+        </div>
+        <div class="extraticketinfo">
+            <ion-icon name="star-half-outline"></ion-icon>
+            <p style="margin-left: 10px;">An Immersive Experience
+                for all</p>
+            
+
+        </div>
+        <div class="extraticketinfo">
+            <ion-icon name="star-half-outline"></ion-icon>
+            <p style="margin-left: 10px;">world premiere of a brand-new CORE</p>
+            
+
+        </div>
+        <button style=" margin-top: 20px; margin-bottom: 10px;" class="PurchaseT"> Purchase your Ticket</button>
+    </div>
+    <div class="Ticket">
+        <ion-icon name="musical-notes-outline" style="font-size: 70px; margin-top: -10px;"></ion-icon>
+        <h3 style="font-size: 20px; margin-top: 10px;">Library Of Tomorrow</h3>
+        <h1 style="font-size: 45px; margin-top: -18px;">75$</h1>
+        <div class="extraticketinfo">
+            <ion-icon name="star-half-outline"></ion-icon>
+            <p style="margin-left: 10px;">In Barcelona !</p>
+        </div>
+        <div class="extraticketinfo">
+            <ion-icon name="star-half-outline"></ion-icon>
+            <p style="margin-left: 10px;">An Immersive Experience
+                for all</p>
+            
+
+        </div>
+        <div class="extraticketinfo">
+            <ion-icon name="star-half-outline"></ion-icon>
+            <p style="margin-left: 10px;">Unforgettable VR Adventure</p>
+            
+
+        </div>
+        <button style=" margin-top: 20px; margin-bottom: 10px;" class="PurchaseT"> Purchase your Ticket</button>
+    </div>
+    </div>
+    <!-- <div class="Thirdofpage" style="display: flex; flex-direction: row;">
+        <div class="Mapdiv">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.194149113214!2d2.1718273154792636!3d41.39329497926208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4983c3dd98d17%3A0xb5f1d3c6e9b46e69!2sPla%C3%A7a%20Catalunya!5e0!3m2!1sen!2sus!4v1642487399631!5m2!1sen!2sus" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+        <div class="Mapdiv">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.194149113214!2d2.1718273154792636!3d41.39329497926208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4983c3dd98d17%3A0xb5f1d3c6e9b46e69!2sPla%C3%A7a%20Catalunya!5e0!3m2!1sen!2sus!4v1642487399631!5m2!1sen!2sus" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+    </div> -->
+    <div class="Thirdofpage" style="display: flex; flex-direction: row; border-width: 0px;">
+        <div class="Mapandtext">
+        <div class="Mapdiv" id="map1">
+            
+        </div>
+        <p>Barcelona - Spain</p>
+    </div>
+    <div class="Mapandtext">
+        <div class="Mapdiv" id="map2">
+            
+        </div>
+        <p>Tulum - Mexico</p>
+    </div>
+    
+    </div>
+    <script>
+        
+        var map1 = L.map('map1').setView([41.393355, 2.174016], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map1);
+        L.marker([41.393355, 2.174016]).addTo(map1);
+
+        var map2 = L.map('map2').setView([20.211660, -87.456643], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map2);
+        L.marker([20.211660, -87.456643]).addTo(map2);
+    </script>
+</body>
+</html>
